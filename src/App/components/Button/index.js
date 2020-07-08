@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useMediaPredicate } from 'react-media-hook'; 
-import {buttonLink, buttonLinkMobile} from './style'
+import {buttonLink, buttonLinkMobile, buttonForm} from './style'
 
 const Button = ({type, title, funcao}) => {
     const webLayout = useMediaPredicate("(min-width: 600px)")
@@ -9,6 +9,9 @@ const Button = ({type, title, funcao}) => {
     )
     if(type === 'link') return(
         <a href={funcao} style={{width:'100%', display:'flex'}}><button style={webLayout ? buttonLink: buttonLinkMobile}>{title}</button></a>
+    )
+    if(type === 'form') return(
+        <button type='submit' style={buttonForm} onClick={funcao}>{title}</button>
     )
 }
 

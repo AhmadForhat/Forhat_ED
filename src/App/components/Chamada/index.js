@@ -10,7 +10,7 @@ const Chamada = () => {
 	return (
         <div style={webLayout ? containerWeb : containerMobile}>
             <img src={imgChamada} alt="imagem de chamada inicial" style={{width:'220px', alignSelf:'center', marginLeft:'75%', zIndex:'2'}}/>
-            <Button type='link' title='Cadastre-se' funcao='/cadastrar'/>
+            <Button type='link' title='Cadastre-se' funcao='/cadastro'/>
                 <motion.div
                 style={{width: '90px',height: '90px',backgroundColor: '#C7A31E',borderRadius: '15px', position:'absolute', top:'18%', left:'76.5%'}}
                 whileHover={{ scale: 1.15, rotate: 90 }}

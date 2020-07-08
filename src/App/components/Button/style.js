@@ -21,4 +21,14 @@ export const
         border:'none',
         backgroundColor:'#1E1447',
         color:'white'
+    },
+    buttonForm={
+        width:'100%',
+        borderRadius:'8px',
+        minWidth:'100px',
+        padding:'10px',
+        margin:'0 auto',
+        border:'none',
+        backgroundColor:'#1E1447',
+        color:'white'
     }

@@ -14,7 +14,7 @@ const Navbar = ({links}) => {
             {
                 webLayout ? (
                     <div style={container}>
-                        <img src={logoBranco} alt="Logo" style={{width:'70px', margin:'10px'}}/>
+                        <a href="/"><img src={logoBranco} alt="Logo" style={{width:'70px', margin:'10px'}}/></a>
                         <div style={{display:'flex'}}>
                             {links.map((link, index) => {
                                 return (

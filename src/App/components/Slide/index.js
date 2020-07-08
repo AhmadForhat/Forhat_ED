@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import imagemEstudando from './image/estudandoEmCasa.png'
 import imageConforto from './image/conforto.png'
 import {boxContainer, subTitle, body, frase, butao, butaoAtivo} from './style'
-import Button from '../Button'
 
 const Slide = () => {
     const [slideNumber, setSlideNumber] = useState(0);
@@ -23,7 +22,6 @@ const Slide = () => {
                     )
                 })}
             </div>
-            <Button type='link' title='Saiba Mais' funcao='/saibaMais'/>
         </div>
     )
 }

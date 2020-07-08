@@ -2,8 +2,8 @@ export const
     container = {
         display:'flex',
         flexDirection:'column',
-        marginLeft:'8%',
-        width:'85%'
+        justifyContent:'center',
+        width:'100%',
     },
     titulo = {
         color:'#1E1447',
@@ -12,6 +12,8 @@ export const
         textAlign: 'left'
     },
     caixa = {
+        margin:'0 auto',
+        width:'100%',
         padding:'10px 0 10px 0',
         textAlign:'center',
         borderRadius:'5px',
@@ -19,6 +21,8 @@ export const
         outline: 'none'
     },
     caixaButton = {
+        margin:'0 auto',
+        width:'100%',
         padding:'10px 0 10px 0',
         textAlign:'center',
         borderRadius:'5px',

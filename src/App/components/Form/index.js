@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Input from '../Input'
+import Spinner from '../Spinner'
+import { useForm } from './utils/useForm'
 
-const Form = ({click, array, isLoad}) => {
+const Form = ({sendToBackend, array}) => {
+    const [submitForm] = useForm()
+    const [isLoad, setIsLoad] = useState(false)
     return (
-        <form>
+        <form onSubmit={submitForm(sendToBackend, setIsLoad)}>
         {array.map((input,index) => {
             return (
                 <div key={index} style={{padding:'10px'}}>
@@ -11,13 +15,15 @@ const Form = ({click, array, isLoad}) => {
                 </div>
             )
         })}
-            <div style={{padding:'10px', marginTop:'10px'}}>
-                {!isLoad ? (
-                    <Input type="submit" value="Enviar" onClick={click}/>
-                ):(
-                    <h2>Carregando...</h2>
-                )}
-            </div>
+            {!isLoad ?(
+                <div style={{padding:'10px', marginTop:'10px'}}>
+                    <Input type="submit"/>
+                </div>
+            ):(
+                <div style={{display:'flex', justifyContent:'center'}}>
+                    <Spinner />
+                </div>
+            )}
         </form>
     )
 }

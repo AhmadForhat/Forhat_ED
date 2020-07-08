@@ -1,35 +1,50 @@
 import React, { useState } from 'react'
 import { useMediaPredicate } from "react-media-hook";
 import Form from '../../components/Form'
-import Spinner from '../../components/Spinner'
+import imgLogin from './image/imgLogin.png'
 import {boxContainer, boxContainerMobile} from './styles'
+import sendToBackend from './sendToBackend'
 
 const Login = () => {
-	const [name, setName] = useState('')
-	const [password, setPassword] = useState('')
-	const state = {setName, setPassword}
+	const [login, setLogin] = useState('')
+	const [pass, setPass] = useState('')
+	const state = {setPass, setLogin, login, pass}
 	const arrayForm = [
 		{
-			title:'Nome',
+			title:'Login',
 			type:'text',
-			placeholder:'Ahmad Forhat',
-			valor: name,
-			setValor: setName
+			placeholder:'ForhatED@gmail.com',
+			valor: login,
+			setValor: setLogin
 		},
 		{
 			title:'Senha',
 			type:'password',
 			placeholder:'**********',
-			valor: password,
-			setValor: setPassword
+			valor: pass,
+			setValor: setPass
 		}
 	]
-	const sendToBackend = () => console.log('batata')
 	const webLayout = useMediaPredicate("(min-width: 600px)")
+	if(webLayout)
+		return (
+			<>
+		<div style={{display:'flex', justifyContent:'space-around'}}>
+				<div style={webLayout ? boxContainer: boxContainerMobile}>
+					<Form sendToBackend={() => sendToBackend(state)} array={arrayForm}/>
+					<a style={{fontSize:'14px', textAlign:'center', color:''}} href='cadastro'>Ainda não possuí conta?</a>
+				</div>
+				<div style={{width:'40%', display:'flex', marginTop:'150px'}}>
+					<img src={imgLogin} style={{width:'100%', alignSelf:'center', margin:'0 auto'}}/>
+				</div>
+			</div>
+			</>
+		)
 	return (
 		<>
-			<div style={webLayout ? boxContainer: boxContainerMobile}>
-				<Form click={() => sendToBackend(state)} array={arrayForm}/>
+			<div style={boxContainerMobile}>
+				<Form sendToBackend={() => sendToBackend(state)} array={arrayForm}/>
+				<a style={{fontSize:'14px', textAlign:'center', color:''}} href='cadastro'>Ainda não possuí conta?</a>
 			</div>
 		</>
 	)
