@@ -33,20 +33,26 @@ module.exports = (env, { mode }) => {
 	}
 	if (mode === 'development') {
 		const {
-			ziro_correios_token,
-			sheet_url,
-			sheet_id,
-			sheet_token
+			api_key,
+			auth_domain,
+			database_url,
+			project_id,
+			storage_bucket,
+			sender_id,
+			app_id
 		} = require('./credentials')
 		config.devtool = 'cheap-module-eval-source-map'
 		config.devServer = { historyApiFallback: true }
 		config.plugins.push(
 			new webpack.DefinePlugin({
 				'process.env': {
-					ZIRO_CORREIOS_TOKEN: JSON.stringify(ziro_correios_token),
-					SHEET_URL: JSON.stringify(sheet_url),
-					SHEET_ID: JSON.stringify(sheet_id),
-					SHEET_TOKEN: JSON.stringify(sheet_token)
+					API_KEY: JSON.stringify(api_key),
+					AUTH_DOMAIN: JSON.stringify(auth_domain),
+					DATABASE_URL: JSON.stringify(database_url),
+					PROJECT_ID: JSON.stringify(project_id),
+					STORAGE_BUCKET: JSON.stringify(storage_bucket),
+					SENDER_ID: JSON.stringify(sender_id),
+					APP_ID: JSON.stringify(app_id)
 				}
 			})
 		)
@@ -70,10 +76,13 @@ module.exports = (env, { mode }) => {
 			}),
 			new webpack.DefinePlugin({
 				'process.env': {
-					ZIRO_CORREIOS_TOKEN: JSON.stringify(process.env.ZIRO_CORREIOS_TOKEN),
-					SHEET_URL: JSON.stringify(process.env.SHEET_URL),
-					SHEET_ID: JSON.stringify(process.env.SHEET_ID),
-					SHEET_TOKEN: JSON.stringify(process.env.SHEET_TOKEN)
+					API_KEY: JSON.stringify(process.env.API_KEY),
+					AUTH_DOMAIN: JSON.stringify(process.env.AUTH_DOMAIN),
+					DATABASE_URL: JSON.stringify(process.env.DATABASE_URL),
+					PROJECT_ID: JSON.stringify(process.env.PROJECT_ID),
+					STORAGE_BUCKET: JSON.stringify(process.env).STORAGE_BUCKET,
+					SENDER_ID: JSON.stringify(process.env.SENDER_ID),
+					APP_ID: JSON.stringify(process.env.APP_ID)
 				}
 			})
 		)
