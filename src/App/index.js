@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Router from './Router'
+import ErrorBoundary from './components/ErrorBoundary'
 
 export const App = () => {
 	return (
-		<Router />
+		<ErrorBoundary>
+			<Router />
+		</ErrorBoundary>
 	)
 }

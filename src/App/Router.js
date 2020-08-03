@@ -6,7 +6,7 @@ import Login from './pages/Login'
 import Navbar from './components/Navbar'
 import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
-
+import CursoIngles from './pages/CursoIngles'
 
 const Router = () => {
     const navbarArray = [{title:'Login', href:'/login'},{title:'Cadastre-se', href:'/cadastro'}]
@@ -20,6 +20,11 @@ const Router = () => {
                 <Navbar links={navbarArrayLogado}/>
                 <Dashboard />
                 </>
+            </Route>
+            <Route path="/ingles/:nivel?">
+                {params => (
+                    <CursoIngles nivel={params.nivel} />
+                )}
             </Route>
             <Route path="/logout">
                 <>

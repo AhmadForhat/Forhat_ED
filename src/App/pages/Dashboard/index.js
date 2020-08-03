@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Spinner from '../../components/Spinner'
+import React, {useEffect } from 'react';
+import CardModulos from '../../components/CardModulos'
 
 const Dashboard = () => {
-    const scrollToEnd = () => {
-        window.scrollTo(0,3000)
-    }
-    useEffect(() => scrollToEnd(),[])
+    const array = [{materia: 'ingles', title: 'Inglês', subTitle:'Curso completo de inglês', description:'Curso completo para aprender inglês da forma mais simples do mundo'}]
     return (
-        <>
-           <h2 style={{marginTop:'200px',height:'2000px'}}>Olá Mundo!</h2>
-        </>
+        <div style={{marginTop:'80px', heigth:'400px'}}>
+            <CardModulos array={array}/>
+        </div>
     )
 }
 
